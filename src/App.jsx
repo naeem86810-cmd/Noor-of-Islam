@@ -258,9 +258,39 @@ function NotFound() {
 function Contact() {
   const [message, setMessage] = useState("");
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
-    setMessage("Thank you! Your message has been received.");
+
+    const form = event.target;
+
+    const contactData = {
+      name: form.elements.name.value,
+      email: form.elements.email.value,
+      message: form.elements.message.value
+    };
+
+    try {
+      const response = await fetch(
+        "http://localhost:5000/api/contact",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(contactData)
+        }
+      );
+
+      const data = await response.json();
+
+      if (data.success) {
+        setMessage(data.message);
+        form.reset();
+      }
+    } catch (error) {
+      console.error(error);
+      setMessage("Unable to send message. Please try again.");
+    }
   }
 
   return (
@@ -274,11 +304,25 @@ function Contact() {
       </p>
 
       <form className="contact-form" onSubmit={handleSubmit}>
-        <input type="text" placeholder="Your Name" required />
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          required
+        />
 
-        <input type="email" placeholder="Your Email" required />
+        <input
+          type="email"
+          name="email"
+          placeholder="Your Email"
+          required
+        />
 
-        <textarea placeholder="Your Message" required></textarea>
+        <textarea
+          name="message"
+          placeholder="Your Message"
+          required
+        ></textarea>
 
         <button type="submit">Send Message</button>
       </form>
