@@ -271,7 +271,7 @@ function Contact() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/contact",
+        "https://noor-of-islam-backend.onrender.com/api/contact",
         {
           method: "POST",
           headers: {
