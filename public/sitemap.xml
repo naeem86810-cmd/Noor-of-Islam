@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://noor-of-islam-beta.vercel.app/</loc>
+  </url>
+  <url>
+    <loc>https://noor-of-islam-beta.vercel.app/quran</loc>
+  </url>
+  <url>
+    <loc>https://noor-of-islam-beta.vercel.app/hadith</loc>
+  </url>
+  <url>
+    <loc>https://noor-of-islam-beta.vercel.app/articles</loc>
+  </url>
+  <url>
+    <loc>https://noor-of-islam-beta.vercel.app/about</loc>
+  </url>
+  <url>
+    <loc>https://noor-of-islam-beta.vercel.app/contact</loc>
+  </url>
+</urlset>
